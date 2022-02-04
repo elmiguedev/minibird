@@ -10,7 +10,7 @@ new Game({
         default: "arcade",
         arcade: {
             gravity: {
-                y: 200
+                y: 900
             }
         }
     },
