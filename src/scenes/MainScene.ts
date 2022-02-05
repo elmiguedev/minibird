@@ -3,6 +3,7 @@ import Floor from "../entities/Floor";
 import Bird from "../entities/Bird";
 import Tree from "../entities/Tree";
 import Nest from "../entities/Nest";
+import CatLayer from "../entities/CatLayer";
 
 export default class MainScene extends Scene{
 
@@ -47,7 +48,7 @@ export default class MainScene extends Scene{
         this.nest = new Nest(this,0, -100);
         this.createSolidGroup();
         
-        
+        const catLayer = new CatLayer(this);
 
     }
 
@@ -62,7 +63,10 @@ export default class MainScene extends Scene{
 
     checkColissions() {
         this.physics.collide(this.solidGroup, this.bird);
-        this.physics.collide(this.bird,this.nest);
+        this.physics.collide(this.bird,this.nest, () => {
+            if (this.bird.body.touching.down)
+                console.log("CHOC")
+        });
         
     }
    

@@ -7,5 +7,7 @@ export default class Nest extends Phaser.Physics.Arcade.Sprite {
         this.scene.physics.add.existing(this,true);
         this.setImmovable(true)
         this.body.checkCollision.down = false;
+        this.body.checkCollision.left = false;
+        this.body.checkCollision.right = false;
     }
 }
