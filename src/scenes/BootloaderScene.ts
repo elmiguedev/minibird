@@ -3,8 +3,9 @@ import { Scene } from "phaser";
 import BirdPng from "../../assets/img/bird.png";
 import NestPng from "../../assets/img/nest.png";
 import CatsPng from "../../assets/img/cats.png";
+import ApplePng from "../../assets/img/apple.png";
 
-export default class BootloaderScene extends Scene{
+export default class BootloaderScene extends Scene {
     constructor() {
         super("BootloaderScene");
     }
@@ -12,6 +13,7 @@ export default class BootloaderScene extends Scene{
     preload() {
         this.load.image("bird", BirdPng);
         this.load.image("nest", NestPng);
+        this.load.image("apple", ApplePng);
         this.load.spritesheet("cats", CatsPng, {
             frameWidth: 64, frameHeight: 64
         })
@@ -19,5 +21,5 @@ export default class BootloaderScene extends Scene{
             this.scene.start("MainScene");
         })
     }
-    
+
 }
