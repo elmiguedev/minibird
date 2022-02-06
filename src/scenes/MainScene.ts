@@ -27,7 +27,7 @@ export default class MainScene extends Scene {
     update() {
         this.bird.update();
         this.checkColissions();
-        this.checkCatLayer();
+        // this.checkCatLayer();
 
         // this.physics.collide(this.bird, this.solid);
         if (this.leftKey.isDown && !this.leftKeyPressed) {
@@ -60,7 +60,7 @@ export default class MainScene extends Scene {
 
         });
         // this.bird = this.physics.add.sprite(0,0,"bird");
-        this.bird = new Bird(this, 0, 100);
+        this.bird = new Bird(this, 0, -100);
         this.cameras.main.startFollow(this.bird);
         this.cameras.main.setBackgroundColor(0xccffFF);
         this.leftKey = this.input.keyboard.addKey("left");
@@ -68,7 +68,7 @@ export default class MainScene extends Scene {
 
         this.createSolidGroup();
 
-        this.catLayer = new CatLayer(this);
+        // this.catLayer = new CatLayer(this);
 
         this.time.addEvent({
             repeat: -1,
@@ -83,11 +83,11 @@ export default class MainScene extends Scene {
 
     createSolidGroup() {
         this.solidGroup = this.physics.add.staticGroup();
-        this.solidGroup.add(new Floor(this, 0, this.game.canvas.height));
+        this.solidGroup.add(new Floor(this, 0, 0));
     }
 
     createTree() {
-        this.tree = new Tree(this, 0, this.game.canvas.height, 20);
+        this.tree = new Tree(this, 0, 0, 40);
     }
 
     checkColissions() {

@@ -4,8 +4,8 @@ import MainScene from "./scenes/MainScene";
 
 new Game({
     type: Phaser.AUTO,
-    width: 640,
-    height: 480,
+    width: window.innerWidth,
+    height: window.innerHeight,
     physics: {
         default: "arcade",
         arcade: {
