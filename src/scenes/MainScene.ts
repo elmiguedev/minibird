@@ -4,6 +4,7 @@ import Bird from "../entities/Bird";
 import Tree from "../entities/Tree";
 import CatLayer from "../entities/CatLayer";
 import Apple from "../entities/Apple";
+import MainHud from "../huds/MainHud";
 
 export default class MainScene extends Scene {
 
@@ -11,6 +12,7 @@ export default class MainScene extends Scene {
     private solidGroup!: Phaser.Physics.Arcade.StaticGroup;
     private leftKey!: Phaser.Input.Keyboard.Key;
     private rightKey!: Phaser.Input.Keyboard.Key;
+
     private bird!: Bird;
     private tree!: Tree;
     private catLayer!: CatLayer;
@@ -66,6 +68,7 @@ export default class MainScene extends Scene {
         this.leftKey = this.input.keyboard.addKey("left");
         this.rightKey = this.input.keyboard.addKey("right");
 
+
         this.createSolidGroup();
 
         // this.catLayer = new CatLayer(this);
@@ -77,6 +80,10 @@ export default class MainScene extends Scene {
                 this.createApple();
             }
         });
+
+        this.scene.launch("MainHud");
+        const hud = <MainHud>this.scene.get("MainHud");
+        hud.setBird(this.bird);
 
 
     }

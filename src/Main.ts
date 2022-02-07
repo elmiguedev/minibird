@@ -1,4 +1,5 @@
 import { Game } from "phaser";
+import MainHud from "./huds/MainHud";
 import BootloaderScene from "./scenes/BootloaderScene";
 import MainScene from "./scenes/MainScene";
 
@@ -16,6 +17,7 @@ new Game({
     },
     scene: [
         BootloaderScene,
-        MainScene
+        MainScene,
+        MainHud
     ]
 });
